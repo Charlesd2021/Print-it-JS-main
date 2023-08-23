@@ -36,32 +36,32 @@ console.log("currentSlideIndex");
 
 	// Fonction pour mettre à jour le carrousel
 	function updateCarousel() {
-	const currentSlide = slides[currentSlideIndex];
-	bannerImg.src = `./assets/images/slideshow/${currentSlide.image}`;
-	tagLine.innerHTML = currentSlide.tagLine;
+		const currentSlide = slides[currentSlideIndex];
+		bannerImg.src = `./assets/images/slideshow/${currentSlide.image}`;
+		tagLine.innerHTML = currentSlide.tagLine;
 
-	// Met à jour les points
-	dotsContainer.innerHTML = '';
-	for (let i = 0; i < slides.length; i++) {
-	const dot = document.createElement("div");
-	dot.classList.add("dot");
-	if (i === currentSlideIndex) {
-		dot.classList.add("dot_selected");
-	}
-	dotsContainer.appendChild(dot);
-	}
+		// Met à jour les points
+		dotsContainer.innerHTML = '';
+		for (let i = 0; i < slides.length; i++) {
+			const dot = document.createElement("div");
+			dot.classList.add("dot");
+			if (i === currentSlideIndex) {
+				dot.classList.add("dot_selected");
+			}
+			dotsContainer.appendChild(dot);
+		}
 	}
 
 	// Fonction pour afficher la diapositive suivante
 	function nextSlide() {
-	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-	updateCarousel();
+		currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+		updateCarousel();
 	}
 
 	// Fonction pour afficher la diapositive précédente
 	function previousSlide() {
-	currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-	updateCarousel();
+		currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+		updateCarousel();
 	}
 
 	// Gère les clics sur les flèches
@@ -73,10 +73,10 @@ console.log("currentSlideIndex");
 
 	// Ajoute un écouteur d'événement pour les clics sur les points
 	dotsContainer.addEventListener("click", (event) => {
-	if (event.target.classList.contains("dot")) {
-	currentSlideIndex = Array.from(dotsContainer.children).indexOf(event.target);
-	updateCarousel();
-	}
+		if (event.target.classList.contains("dot")) {
+		currentSlideIndex = Array.from(dotsContainer.children).indexOf(event.target);
+		updateCarousel();
+		}
 	});
 
 
